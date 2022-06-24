@@ -1,0 +1,20 @@
+/* Forces footer to stick to the bottom of the page */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  /* logo */
+  nav .brand-logo {
+    padding-left: 20px;
+  }
+
+  /* footer */
+  .page-footer {
+    padding-top: 0;
+  }
