@@ -14,4 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Category select field initialization
     let selects = document.querySelectorAll('select');
     M.FormSelect.init(selects);
+
+  // Collapsible task view initialization  
+    collapsibles = document.querySelectorAll('.collapsible');
+    M.Collapsible.init(collapsibles);
   });
