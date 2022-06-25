@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
     <h3 class="light-blue-text text-darken-4 center-align">Tasks</h3>
 
     <div class="row">
@@ -7,6 +8,31 @@
             <a href="{{ url_for('add_task') }}" class="btn-large light-blue darken-2">Add Task <i class="fas fa-plus-square right"></i>
             </a>
         </div>
+    </div>
+
+    <div class="row">
+        <ul class="collapsible">
+
+            <!-- List of tasks -->
+            {% for task in tasks|sort(attribute="due_date") %}
+                <li>
+                    <div class="collapsible-header white-text light-blue darken-4"><i class="fas fa-caret-down"></i>
+                        <span aria-level="2"><strong>{{ task.task_name }}</strong> - Due date: {{ task.due_date.strftime("%d %B, %Y") }} 
+                        {% if task.is_urgent == True %}
+                            <i class="fas fa-exclamation-circle light-blue-text text-lighten-2" aria-label="Task is urgent"></i>
+                        {% endif %}
+                        </span>
+                    </div>
+                    <div class="collapsible-body">
+                        <strong>Category: {{ task.category }}</strong>
+                        <p>
+                            Description: {{ task.task_description }}
+                        </p>
+                    </div>
+                </li>
+            {% endfor %}
+
+        </ul>
     </div>
 
 {% endblock content %}
