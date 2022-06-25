@@ -28,6 +28,9 @@
                         <p>
                             Description: {{ task.task_description }}
                         </p>
+                        <!-- edit/delete buttons -->
+                        <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
+                        <a href="" class="btn red">Delete</a>
                     </div>
                 </li>
             {% endfor %}
